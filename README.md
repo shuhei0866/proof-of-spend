@@ -90,4 +90,4 @@ This is a design proposal, not a product. Fork it, critique it, build something 
 
 ## License
 
-CC-BY-4.0
+MIT
