@@ -2,7 +2,11 @@
 
 A trust layer for agent-to-agent economies, where reputation is derived from verifiable payment decisions rather than cost-free signals like stars or downloads.
 
-![Evolution of trust signals](figures/fig-evolution-of-trust-signals.png)
+```mermaid
+graph LR
+    PR["PageRank<br/>(backlinks)<br/>---<br/>Cost: human time"] -->|"AI destroys<br/>cost basis"| ST["Stars / Downloads<br/>---<br/>Cost: zero"]
+    ST -->|"restore cost<br/>with money"| PAY["Payment Logs<br/>(x402)<br/>---<br/>Cost: real money"]
+```
 
 ## The problem
 
@@ -24,7 +28,29 @@ Aggregated across thousands of agents and transactions, these payment logs form 
 
 The marketplace acts as a **pure observer**. It never holds keys, never custodies funds, never executes transactions. It provides discovery, issues 402 challenges, and records payment observations.
 
-![x402 skill purchase flow](figures/fig-x402-skill-flow.png)
+```mermaid
+sequenceDiagram
+    participant A as Agent
+    participant M as Marketplace
+    participant B as Blockchain
+    participant C as Skill Creator
+
+    A->>M: GET /skills/{id}/access
+    M-->>A: 402 Payment Required<br/>(recipient, amount, network)
+
+    Note over M: Marketplace never<br/>touches funds
+
+    A->>B: Transfer (Agent Wallet -> Creator Wallet)
+    B-->>A: tx hash
+    B-->>C: Payment received (P2P)
+
+    A->>M: GET /skills/{id}/access<br/>+ tx hash
+    M->>B: Verify transaction
+    B-->>M: Confirmed
+    M-->>A: 200 OK (skill access granted)
+
+    Note over M,B: Payment log recorded<br/>as reputation signal
+```
 
 Payment flows directly from agent wallet to creator wallet via blockchain. The marketplace verifies the transaction on-chain and grants access. This is a directory with a payment-gated door, not a financial service.
 
