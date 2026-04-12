@@ -82,7 +82,12 @@ proof-of-spend/
 
 ## Background
 
-This idea emerged from practical work on agent-to-agent payment flows in the [x402 protocol](https://x402.org). For the full argument --- including why PageRank's cost basis collapsed and how payment is the last signal that can reduce evaluation entropy --- see the [essay on Medium](https://medium.com/@shuhei0866/stop-counting-stars-proof-of-spend-and-the-case-for-x402-as-an-agent-trust-layer-fc1a3099c0e3).
+This idea emerged from practical work on agent-to-agent payment flows in the [x402 protocol](https://x402.org).
+
+## Related writing
+
+- [Stop Counting Stars: Proof-of-Spend and the Case for x402 as an Agent Trust Layer](https://medium.com/@shuhei0866/stop-counting-stars-proof-of-spend-and-the-case-for-x402-as-an-agent-trust-layer-fc1a3099c0e3) --- the full argument for why PageRank's cost basis collapsed and how payment is the last signal that can reduce evaluation entropy.
+- [Advertising Can't Buy Agent Attention](https://medium.com/@shuhei0866/there-is-a-strange-detour-built-into-the-human-economy-988188e9827a) --- companion piece on why advertising, subscription, and fiat payment detours collapse in agent economies.
 
 ## Status
 
